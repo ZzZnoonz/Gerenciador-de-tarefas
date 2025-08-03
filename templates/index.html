@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas - POO</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- CABEÇALHO ATUALIZADO E PERSONALIZADO -->
+    <header class="work-header">
+        <div class="college-info">
+            <!-- Substitua pelo link real da logo da sua faculdade -->
+            <img src="{{ url_for('static', filename='img/IF_-__Brasão.png') }}" alt="Logo da Faculdade" class="college-logo">
+            <h2>Instituto Federal do Norte de Minas Gerais - Campus Araçuai</h2>
+            <p>Análise e Desenvolvimento de Sistemas</p>
+        </div>
+        <div class="course-info">
+            <div class="course-title">
+                <img src="" alt="" class="tads-logo">
+                <h1>Programação Orientada a Objetos</h1>
+            </div>
+            <p>👨‍🏫 <strong>Professor:</strong> Mario Diego</p>
+            <p>🎓 <strong>Turma:</strong> 3º Período</p>
+        </div>
+        <div class="team-info">
+            <h3>👥 Integrantes do Grupo</h3>
+            <ul>
+                <li>Alef Francisco Ribeiro Amaral</li>
+                <li>Robert Neves Messias</li>
+                <li>Thailc Lopes Souza</li>
+                <li>Matheus Lopes de Almeida</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da aplicação -->
+    <main class="container">
+        <div class="main-title-bar">
+            <h1>Minhas Tarefas</h1>
+            <!-- BOTÃO DE EXPORTAÇÃO -->
+            <button id="btn-exportar" class="export-button">Exportar para CSV</button>
+        </div>
+
+        <!-- Formulário de criação atualizado com "Descrição" -->
+        <form id="form-nova-tarefa" class="form-grid">
+            <input type="text" id="input-titulo-tarefa" placeholder="Título da tarefa" required>
+            <input type="text" id="input-descricao-tarefa" placeholder="Descrição" required>
+            <input type="date" id="input-data-tarefa" required>
+            <input type="time" id="input-horario-tarefa" required>
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <!-- Cabeçalho da lista de tarefas atualizado -->
+        <div class="task-list-header">
+            <span class="col-titulo">Tarefa</span>
+            <span class="col-descricao">Descrição</span>
+            <span class="col-data">Data/Hora</span>
+            <span class="col-status">Status</span>
+            <span class="col-acoes">Ações</span>
+        </div>
+
+        <ul id="lista-tarefas">
+            <!-- As tarefas serão inseridas aqui -->
+        </ul>
+    </main>
+
+    <!-- Modal de edição atualizado com "Descrição" -->
+    <div id="modal-edicao" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Editar Tarefa</h2>
+            <form id="form-edicao">
+                <input type="hidden" id="edit-id">
+                <label for="edit-titulo">Título:</label>
+                <input type="text" id="edit-titulo" required>
+                <label for="edit-descricao">Descrição:</label>
+                <input type="text" id="edit-descricao" required>
+                <label for="edit-data">Data:</label>
+                <input type="date" id="edit-data" required>
+                <label for="edit-horario">Horário:</label>
+                <input type="time" id="edit-horario" required>
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
